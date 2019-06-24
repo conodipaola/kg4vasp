@@ -1,0 +1,144 @@
+--- optics_orig.F	2019-06-21 18:07:28.515298000 +0100
++++ optics.F	2019-06-23 21:21:27.945903000 +0100
+@@ -164,6 +164,27 @@
+ ! loop over all (current) k-points, spin component and cartesian directions
+       DO NK=1,KPOINTS%NKPTS
+        DO ISP=1,INFO%ISPIN
++!
++#ifdef NABLA1
++        io_begin
++        open(unit=304,file='nabla.dat')
++!
++        WRITE(304,30) (WDES%VKPT(I,NK),I=1,3),WDES%WTKPT(NK)
++!        WRITE(305,30) (WDES%VKPT(I,NK),I=1,3),WDES%WTKPT(NK)
++!
++        io_end
++#endif
++!
++#ifdef NABLAbin
++        io_begin
++        open(unit=304,file='nabla.dat',form='unformatted',access='sequential')
++!
++        WRITE(304) (WDES%VKPT(I,NK),I=1,3),WDES%WTKPT(NK)
++!        WRITE(305,30) (WDES%VKPT(I,NK),I=1,3),WDES%WTKPT(NK)
++!
++        io_end
++#endif
++!
+         DO IDIR=1,3
+ ! get the matrix element of the nabla-operator in eV/Angstroem units
+          CALL NABIJ_SOFT(NABIJ,IDIR,NK,ISP,W,WDES,GRID_SOFT,LATT_CUR)
+@@ -173,9 +194,91 @@
+ 
+          CALLMPI( M_sum_g(WDES%COMM,NABIJ(1,1),NB_TOT*NB_TOT))
+ 
++!!   Cono
++#ifdef NABLA1
++         io_begin
++!
++             WRITE(304,40) NK,ISP,IDIR,NB_TOT
++!             WRITE(305,40) NK,ISP,IDIR,NB_TOT
++
++             DO N1BAND=1,NB_TOT
++
++                DO N2BAND=1,NB_TOT
++
++                   WRITE(304,10) N2BAND &
++                        ,REAL(W%CELTOT(N2BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N2BAND,NK,ISP)*WDES%WTKPT(NK) &
++                        ,N1BAND&
++                        ,REAL(W%CELTOT(N1BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N1BAND,NK,ISP)*WDES%WTKPT(NK)
++
++                   WRITE(304,*) NABIJ(N2BAND,N1BAND)
++
++                ENDDO
++
++             ENDDO
++!
++!             DO N1BAND=1,NB_TOT
++
++!                DO N2BAND=1,NB_TOT
++
++!                   WRITE(305,10) N2BAND &
++!                        ,REAL(W%CELTOT(N2BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N2BAND,NK,ISP)*WDES%WTKPT(NK) &
++!                        ,N1BAND&
++!                        ,REAL(W%CELTOT(N1BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N1BAND,NK,ISP)*WDES%WTKPT(NK) 
++
++!                   WRITE(305,*) NABIJ(N2BAND,N1BAND)*(0._q,-1._q)
++
++!                ENDDO
++
++!             ENDDO
++!
++        io_end
++#endif
++!
++#ifdef NABLAbin
++         io_begin
++!
++             WRITE(304) NK,ISP,IDIR,NB_TOT
++!             WRITE(305,40) NK,ISP,IDIR,NB_TOT
++
++             DO N1BAND=1,NB_TOT
++
++                DO N2BAND=1,NB_TOT
++
++                   WRITE(304) N2BAND &
++                        ,REAL(W%CELTOT(N2BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N2BAND,NK,ISP)*WDES%WTKPT(NK) &
++                        ,N1BAND&
++                        ,REAL(W%CELTOT(N1BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N1BAND,NK,ISP)*WDES%WTKPT(NK)
++
++                   WRITE(304) NABIJ(N2BAND,N1BAND)
++
++                ENDDO
++
++             ENDDO
++!
++!             DO N1BAND=1,NB_TOT
++
++!                DO N2BAND=1,NB_TOT
++
++!                   WRITE(305,10) N2BAND &
++!                        ,REAL(W%CELTOT(N2BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N2BAND,NK,ISP)*WDES%WTKPT(NK) &
++!                        ,N1BAND&
++!                        ,REAL(W%CELTOT(N1BAND,NK,ISP),KIND=q),(3-INFO%ISPIN)*W%FERTOT(N1BAND,NK,ISP)*WDES%WTKPT(NK) 
++
++!                   WRITE(305,*) NABIJ(N2BAND,N1BAND)*(0._q,-1._q)
++
++!                ENDDO
++
++!             ENDDO
++!
++        io_end
++#endif
++
++
++!!! end Cono 
+          SCALE_NABIJ_TO_VIJ=AUTOA    ! hbar/m_e * 1/length in whatever unit
+          NABIJ=NABIJ*SCALE_NABIJ_TO_VIJ   ! rescaling to bohr radii/Hartree
+ ! write OPTIC
++#ifdef OPT1
+          io_begin
+          IF (IU>=0) THEN
+            CALL OUTOPT(NABIJ,IDIR,NK,ISP,W%CELTOT,W%FERTOT,NB_TOT, &
+@@ -183,6 +286,7 @@
+                        WDES%WTKPT,IRECLO,NBVAL,NBCON,NKOPT,NKOFF,IU)
+          ENDIF
+          io_end
++#endif
+ 
+         ENDDO    ! IDIR
+        ENDDO     ! ISP
+@@ -196,6 +300,13 @@
+ ! if we jumped to this label something was going wrong with the input from INCAR
+  8734 CONTINUE
+       IF (IU0>=0)  WRITE(IU0,*) 'No optics data calculated.'
++
++! Cono
++10 FORMAT(2X,I4,2X,F20.14,2X,F20.14,2X,I4,2X,F20.14,2X,F20.14)
++20 FORMAT(2X,E20.14,2X,E20.14)
++30 FORMAT(2X,F20.14,2X,F20.14,2X,F20.14,2X,F20.14)
++40 FORMAT(2X,I4,2X,I4,2X,I4,2X,I4,2X,'# KPOINT  SPIN_CHANNEL DIRECTION NBANDS TOT')
++! Cono
+       RETURN
+       END
+ 
