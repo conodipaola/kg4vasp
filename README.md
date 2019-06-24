@@ -58,6 +58,7 @@ The quantities calculated at the moment are:
 The structure is the following:
 
 1. src: source code in fortran90
+    * check Makefile to update the fortran compiler: a) compile with *make* or 2) clean with *make clean*
 2. examples: test drive for kg4vasp
     a) Simple VASP calculations
     b) from kgec code simple QE/kgec calculations

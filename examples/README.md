@@ -9,7 +9,7 @@ It is important to patch kgec_2_1 and vasp_5_4_4
 
 	* in *makefile.include*, It has to be used the pre-pocessor flag: a) **-DNABLA1** if you want *nabla.dat* to be written in ASCII human readable format; b) or **-DNABLA_bin** if you want the file in binary unformatted style.
 
-	* if you want also *OPTICS* calculations flag -DOPT1 has to be also included.
+	* if you want also *OPTICS* calculations flag **-DOPT1** has to be also included.
 
 ## __TEST__
 
