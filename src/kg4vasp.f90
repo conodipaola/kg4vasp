@@ -60,7 +60,7 @@ program kubo_greenwood
 !    write(13,*) 'VOLUME = ',volume
 !    write(13,*) 'DSIGMA = ',dsigma
 !    write(13,*) 'INTRA_BAND = ', intrab
-1    write(13,*) 'FERMI_ENERGY = ',e_f
+!    write(13,*) 'FERMI_ENERGY = ',e_f
 !    write(13,*) 'OCC_FROM_CODE = ', FROM_CODE
 !    write(13,*) 'MATRIX ELEMENTS FROM VASP = ', FROM_VASP
 !    write(13,*) IU1

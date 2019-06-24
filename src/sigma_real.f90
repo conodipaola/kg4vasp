@@ -85,6 +85,8 @@ subroutine real_exact_conductivity
     sigma1=0.0_q
 !
     OPEN(unit=10,FILE='elec_conductivity_vs_freq.dat',STATUS='NEW')
+    write(10,'(2x,11(A20,2x))')'## freq (eV)', '11', '12', '13', '21', '22', '23',&
+         '31', '32', '33','TRACE/3'
 !    if (ierr/=0) then error()
 !! debug
     do ifreq = 0,nfreq ! starting cycle over frequency range
@@ -152,11 +154,11 @@ subroutine real_exact_conductivity
         sigma_real(1:3,1:3,ifreq) = (((HBAR**3)*(EVTOJ**3))/((ELEMASS**2)*(ANGTOMT**5)))*(sigma1(1:3,1:3))&
             * calc1 / volume
 !
-            write(100,*) calc1, volume, pi, sigma
-        write(9,'(2x,11(F20.14,2x))') freq_g(ifreq),sigma1(1,1),sigma1(1,2),sigma1(1,3)&
-            ,sigma1(2,1),sigma1(2,2),sigma1(2,3)&
-            ,sigma1(3,1),sigma1(3,2),sigma1(3,3)&
-            ,((sigma1(1,1)+sigma1(2,2)+sigma1(1,1))/3.0_q)
+!            write(100,*) calc1, volume, pi, sigma
+!        write(9,'(2x,11(F20.14,2x))') freq_g(ifreq),sigma1(1,1),sigma1(1,2),sigma1(1,3)&
+!            ,sigma1(2,1),sigma1(2,2),sigma1(2,3)&
+!            ,sigma1(3,1),sigma1(3,2),sigma1(3,3)&
+!            ,((sigma1(1,1)+sigma1(2,2)+sigma1(1,1))/3.0_q)
         write(10,'(2x,11(E20.14,2x))') freq_g(ifreq),(((sigma_real(icart,jcart,ifreq)), icart=1,3),jcart=1,3), &
         ( (sigma_real(1,1,ifreq)+sigma_real(2,2,ifreq)+sigma_real(3,3,ifreq))/3.0_q )
 !

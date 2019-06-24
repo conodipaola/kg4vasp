@@ -48,7 +48,7 @@ subroutine read_nabla()
     allocate(wk(nkpoints))
     ik=1
     itemp=1
-    write(30,*) FNAME
+!    write(30,*) FNAME
 !    DO WHILE (itemp == 1)
     DO
 !
@@ -59,15 +59,15 @@ subroutine read_nabla()
         endif
 !
         IF (ierror1 > 0) THEN
-            write(20,*) 'something wrong!'
+            write(*,*) 'nabla data file: something wrong!'
             STOP
         ELSE IF (ierror1 < 0) THEN
-            write(20,*) 'end of file reached'
+            write(*,*) 'nabla data file: end of file reached'
             EXIT
         ELSE
 !
-            write(60,*) kx(ik),ky(ik),kz(ik),wk(ik)
-            write(30,*) ik,itemp
+!            write(60,*) kx(ik),ky(ik),kz(ik),wk(ik)
+!            write(30,*) ik,itemp
 !
             DO icart=1,3
                 if (.not.n_bin) then
@@ -78,7 +78,7 @@ subroutine read_nabla()
 !
 !                WRITE(60,*) ikpoints,ispin,icart,jcart,nbands1
                 IF (nbands1 /= nbands) THEN
-                    write(20,*) 'Number of bands read from INPUT (',nbands &
+                    write(*,*) 'Number of bands read from INPUT (',nbands &
                       ,' ) differs from the number read in data file (,',nbands1,' )'
                     STOP
                 ENDIF
@@ -92,12 +92,12 @@ subroutine read_nabla()
                                ,k2bands,en(k2bands,ik),fw(k2bands,ik)
                        endif
 !
-                        WRITE(60,*) k1bands,en(k1bands,ik),fw(k1bands,ik)&
-                            ,k2bands,en(k2bands,ik),fw(k2bands,ik)
+!                        WRITE(60,*) k1bands,en(k1bands,ik),fw(k1bands,ik)&
+!                            ,k2bands,en(k2bands,ik),fw(k2bands,ik)
                         if (k1bands == k2bands) then
                           deltae=dabs(en(k1bands,ik)-en(k2bands,ik))
                             if (deltae > de) then
-                                write(20,*) 'intra-band energies with too different eigenvalues'
+                                write(*,*) 'intra-band energies with too different eigenvalues'
                               STOP 
                          endif
                         endif
@@ -107,13 +107,13 @@ subroutine read_nabla()
                            READ (IU2,IOSTAT=ierror1) psi_nabla_psi(icart,k1bands,k2bands,ik)
                         endif
 !                        WRITE(60,*)  psi_nabla_psi_i(icart,k1bands,k2bands,ik)
-                        WRITE(60,*)  psi_nabla_psi(icart,k1bands,k2bands,ik)
+!                        WRITE(60,*)  psi_nabla_psi(icart,k1bands,k2bands,ik)
                     enddo
                 enddo
-                write(80,*) icart,ikpoints,ik
+!                write(80,*) icart,ikpoints,ik
             ENDDO ! cartesian components
 !
-            write(70,*) icart,ikpoints,ik,ibands,jbands
+!            write(70,*) icart,ikpoints,ik,ibands,jbands
             ik=ik+1
         ENDIF
 !
@@ -128,8 +128,8 @@ subroutine read_nabla()
 !
 !    fw = fw /2.0_q
     !
-    write(20,*) ikpoints,ispin,icart,nbands
-    write(20,*) ik,nkpoints
+!    write(20,*) ikpoints,ispin,icart,nbands
+!    write(20,*) ik,nkpoints
 !   
     CLOSE(IU2)
 !
