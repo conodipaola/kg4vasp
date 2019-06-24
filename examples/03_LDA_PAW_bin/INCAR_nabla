@@ -1,0 +1,34 @@
+## Frequency dependent dielectric tensor without
+## local field effects
+#IALGO=48
+ALGO = Exact
+#ICHARG=11
+ICHARG=1
+NBANDS  = 10
+LOPTICS = .TRUE. ; CSHIFT = 0.1
+NEDOS = 2000
+## and you might try with the following
+#LPEAD = .TRUE.
+
+NPAR=1   
+KPAR=1
+
+#PREC=Accurate
+
+## Frequency dependent dielectric tensor with and
+## without local field effects in RPA and due to
+## changes in the DFT xc-potential
+## N.B.: beware one first has to have done a
+## calculation with LOPTICS=.TRUE. (see above)
+#ALGO = CHI ; LSPECTRAL = .FALSE.
+#LRPA = .FALSE.
+## be sure to take the same number of bands as for
+## the LOPTICS=.TRUE. calculation, otherwise the
+## WAVEDER file is not read correctly
+#NBANDS = 64
+
+## Leave this in
+ISMEAR =  -1
+SIGMA  =  0.025
+#GGA    = PE
+ISYM=-1

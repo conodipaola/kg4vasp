@@ -1,0 +1,29 @@
+ running on    1 total cores
+ distrk:  each k-point on    1 cores,    1 groups
+ distr:  one band on    1 cores,    1 groups
+ using from now: INCAR     
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Jun 23 2019 22:08:10) complex          
+  
+ POSCAR found type information on POSCAR  Al
+ POSCAR found :  1 types and       4 ions
+ scaLAPACK will be used
+ LDA part: xc-table for Ceperly-Alder, standard interpolation
+ found WAVECAR, reading the header
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...
+ reading WAVECAR
+ the WAVECAR file was read successfully
+ charge-density read from file: unknown                                 
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DIA:   1    -0.127728211565E+02   -0.12773E+02    0.00000E+00     0   0.000E+00    0.680E-03
+DIA:   2    -0.127728209444E+02    0.21211E-06    0.00000E+00     0   0.000E+00
+   1 F= -.12772821E+02 E0= -.12751733E+02  d E =-.421751E-01
+ writing wavefunctions
+ optical routines
+ imaginary and real dielectric function
+ recalculating local potential from charge density
+ direction            1
+ direction            2
+ direction            3
+Application 36267801 resources: utime ~35s, stime ~1s, Rss ~202296, inblocks ~98519, outblocks ~229188

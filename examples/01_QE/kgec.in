@@ -1,0 +1,17 @@
+&kgecpp
+  outdir='./',
+  prefix='al'
+  calculation='tensor'
+  sigma1_exact=.true.
+  decomposition=.true.
+  calculate_sigma2=.true.
+  wmax=5.0
+  wmin=0.0001
+  nw=1000
+  check_delta=.true.
+  deltarep='g'
+  deltawidth=0.01
+  de = 1.0D-6
+  writegm=.true.
+/
+

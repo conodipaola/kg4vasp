@@ -1,0 +1,151 @@
+
+     Program KGEC v.6.1 starts on 19Jun2019 at 13:25:18 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI & OpenMP), running on       1 processor cores
+     Number of MPI processes:                 1
+     Threads/MPI process:                     1
+
+=------------------------------------------------------------------------------=
+                                    KGEC v.2.1
+=------------------------------------------------------------------------------=
+
+     Reading data from directory:
+     ./al.save
+
+   Info: using nr1, nr2, nr3 values from input
+
+   Info: using nr1, nr2, nr3 values from input
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation      = SLA PW NOGX NOGC ( 1  4  0  0 0 0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+               file Al.UPF: wavefunction(s)  Xn Xn Xn renormalized
+ 
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         373     373    129                 5449     5449    1045
+ 
+
+     Check: negative/imaginary core charge=   -0.000005    0.000000
+
+     negative rho (up, down):  1.000E-02 0.000E+00
+ 
+     --------------------------------------------------------------
+                Parameters from the QE calculation 
+     --------------------------------------------------------------
+     System                    :  al                  
+     Directory                 :  ./                  
+     Number of electrons       :           12.000000
+     Temperature (Ry)(degauss) :            0.001837
+     Temperature (K) (degauss) :          290.112432
+     Temperature (eV)(degauss) :            0.025000
+     Number of bands           :                  10
+     Number of k-points        :                   8
+     Sum of k-weights          :            2.000000
+     Sum of band weights       :           12.000000
+     Fermi energy (eV)         :            3.604051
+     Volume (bohr^3)           :          700.632341
+     Wave function cutoff (ry) :           15.000000
+     Pseudo type               :                PAWs
+ 
+     --------------------------------------------------------------
+                 Parameters for the KG conductivity
+     --------------------------------------------------------------
+     Type of calculation          : tensor
+     Calculate                    : Sigma1 and Sigma2
+     Spherical Harmonics          : Real
+     Formulas                     : exact
+        notintra                    : no
+        Decomposition             : yes
+     Delta function width (eV)    :  0.010000  (1 Gaussian(s))
+     Check the wave functions     : no
+     Check delta function rep.    : yes
+     DC component                 : yes
+     AC component                 : yes
+     Gradient matrix elements     : calculate
+      Energies equal. tol. (eV)   :  1.000000000000000E-006
+     Recover plane waves procs.   : no
+     Frequency grid:
+        Frequency step (eV)       :  4.999900000000000E-003
+        Frequency steps           :        1000
+        Frequency range (eV)      :    0.0001 to     5.0000
+  
+     --------------------------------------------------------------
+                            Calculations 
+    --------------------------------------------------------------
+  
+     Calculating the re-normalization factors of | \Psi_{nk} > ...
+ 
+     Calculating the gradient matrix elements over pseudo \Psi_{n,k} .. done. 
+ 
+     Calculating the gradient matrix elements over atomic orbitals
+     and pseudo-orbitals and PAW correction ..  done.
+ 
+     Writing the gradient matrix elements ... done.
+ 
+     Calculating some sum rules (independents of frequencies):
+ 
+     Calculating checks for delta function rep. ...  done.
+  
+     Calculating sigma1 ... done.
+     Calculating sigma2 ... done.
+  
+     Sum rule (exact)          :     3.362
+     Sum rule (int. over freq.):     3.325
+ 
+  
+     ----------------------------------------------------------------
+                  SIGMA1 RELATED OUTPUT (ohm meter)^-1
+     ----------------------------------------------------------------
+     sigma1 DC tensor: all contributions
+      7.8263258E+008     -6.9722632E+003      8.7507781E+004
+     -6.9722632E+003      7.8264675E+008     -9.3169719E+003
+      8.7507781E+004     -9.3169719E+003      7.8242490E+008
+       DC ave. trace (all contributions)        :   782568077.973430     
+     sigma1 DC tensor: intra-bands contribution
+      1.8191555E-005     -7.1789595E-005     -2.3423740E-006
+     -7.1789595E-005      7.3765232E-003      7.2639446E-005
+     -2.3423740E-006      7.2639446E-005      1.3761898E-005
+       DC ave. trace (intraband contribution)   :  2.469492206400868E-003
+     sigma1 DC tensor: degeneracies contribution
+      0.0000000E+000      0.0000000E+000      0.0000000E+000
+      0.0000000E+000      0.0000000E+000      0.0000000E+000
+      0.0000000E+000      0.0000000E+000      0.0000000E+000
+       DC ave. trace (degeneracies contribution):  0.000000000000000E+000
+     sigma1 DC tensor: inter-bands contribution
+      7.8263258E+008     -6.9722631E+003      8.7507781E+004
+     -6.9722631E+003      7.8264675E+008     -9.3169719E+003
+      8.7507781E+004     -9.3169719E+003      7.8242490E+008
+       DC ave. trace (inter-bands contribution) :   782568077.970960     
+ 
+     Real part of the conductivity tensor and/or average trace (in
+     1/(ohm-meter)) vs frequencies (in eV) saved to sigma1*.dat file(s).
+  
+     ----------------------------------------------------------------
+                  SIGMA2 RELATED OUTPUT (ohm meter)^-1
+     ----------------------------------------------------------------
+     sigma2 DC tensor is zero for all components
+ 
+     ----------------------------------------------------------------
+            Kubo Greenwood conductivity calculation finished
+     ----------------------------------------------------------------
+ 
+     KGEC         :     1.52s CPU         2.02s WALL
+
+ 
+   This run was terminated on:  13:25:20  19Jun2019            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=
+Application 36230241 resources: utime ~3s, stime ~1s, Rss ~18236, inblocks ~98773, outblocks ~197478
