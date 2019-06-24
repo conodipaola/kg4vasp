@@ -63,7 +63,7 @@ The structure is the following:
     a) Simple VASP calculations
     b) from kgec code simple QE/kgec calculations
     c) comparison between them and validation
-3. PATCHES: necessary for kgec v2.1 and VASP 5.4.4 to run kg4vasp on VASP matriz elements and on kgec/QE output as well.
+3. PATCHES: necessary for kgec v2.1 and VASP 5.4.4 to run kg4vasp on VASP matrix elements and on kgec/QE output as well.
 
 
 [^1]: https://doi.org/10.1016/j.cpc.2017.08.008 L.Calderín, V.V.Karasiev2, S.B.Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142
