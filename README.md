@@ -2,7 +2,7 @@
 
 __version__: v1.0 stable (stand alone)
 
-## Aknowledgements:
+## Acknowledgements:
 
 I would like to thank:
 
