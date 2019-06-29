@@ -67,6 +67,7 @@ The structure is the following:
 
 
 [^1]: https://doi.org/10.1016/j.cpc.2017.08.008 L.Calderín, V.V.Karasiev2, S.B.Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142
+
 [^2]: https://doi.org/10.1016/j.hedp.2009.06.004
 S.Mazevet,M.Torrent,V.Recoules,F.Jollet, High Energy Density Physics Volume 6, Issue 1, January 2010, Pages 84-88
 
