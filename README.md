@@ -6,10 +6,10 @@ __version__: v1.0 stable (stand alone)
 
 I would like to thank:
 
-* kgec developers [^1] for their inspiring work and effort to deliver a nice tool for *QE*
-* for the mathematical derivation of various quantities from the generalised Kubo-Greenwood formula [^2]
-* *Quantum espresso* [^3]
-* *VASP* [^4]
+* kgec developers <sup>1</sup> for their inspiring work and effort to deliver a nice tool for *QE*
+* for the mathematical derivation of various quantities from the generalised Kubo-Greenwood formula <sup>2</sup>
+* *Quantum espresso* <sup>3</sup>
+* *VASP* <sup>4</sup>
 
 
 ## The code
@@ -66,11 +66,12 @@ The structure is the following:
 3. PATCHES: necessary for kgec v2.1 and VASP 5.4.4 to run kg4vasp on VASP matrix elements and on kgec/QE output as well.
 
 
-[^1]: https://doi.org/10.1016/j.cpc.2017.08.008 L.Calderín, V.V.Karasiev2, S.B.Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142
+## Reference
 
-[^2]: https://doi.org/10.1016/j.hedp.2009.06.004
-S.Mazevet,M.Torrent,V.Recoules,F.Jollet, High Energy Density Physics Volume 6, Issue 1, January 2010, Pages 84-88
+1. [L.Calderín, V.V.Karasiev2, S.B.Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142](https://doi.org/10.1016/j.cpc.2017.08.008)
 
-[^3]: http://dx.doi.org/10.1088/0953-8984/21/39/395502 P. Giannozzi, S. Baroni, N. Bonini, M. Calandra, R. Car, C. Cavazzoni, D. Ceresoli, G. L. Chiarotti, M. Cococcioni, I. Dabo, A. Dal Corso, S. Fabris, G. Fratesi, S. de Gironcoli, R. Gebauer, U. Gerstmann, C. Gougoussis, A. Kokalj, M. Lazzeri, L. Martin-Samos, N. Marzari, F. Mauri, R. Mazzarello, S. Paolini, A. Pasquarello, L. Paulatto, C. Sbraccia, S. Scandolo, G. Sclauzero, A. P. Seitsonen, A. Smogunov, P. Umari, R. M. Wentzcovitch, J.Phys.:Condens.Matter 21, 395502 (2009)
+2. [S.Mazevet,M.Torrent,V.Recoules,F.Jollet, High Energy Density Physics Volume 6, Issue 1, January 2010, Pages 84-88]( https://doi.org/10.1016/j.hedp.2009.06.004)
 
-[^4]: G. Kresse and J. Hafner, Phys. Rev. B 47 , 558 (1993); ibid. 49 , 14 251 (1994).
+3. [Giannozzi, S. Baroni, *et al* J.Phys.:Condens.Matter 21, 395502 (2009)](http://dx.doi.org/10.1088/0953-8984/21/39/395502)
+
+4. [G. Kresse and J. Hafner, Phys. Rev. B 47 , 558 (1993); ibid. 49 , 14 251 (1994)](https://doi.org/10.1103/PhysRevB.47.558)
