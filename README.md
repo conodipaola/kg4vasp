@@ -1,6 +1,6 @@
 # *__KG4VASP__*
 
-__version__: v1.0 stable (stand alone)
+__version__: v1.0 stable (stand alone)  
 Application to real systems: ref. to scientific journal [1] in References
 
 ## Acknowledgements:
@@ -69,12 +69,12 @@ The structure is the following:
 
 ## Reference
 
-1. [C. Di Paola, F. Macheda, S. Laricchia, C. Weber, and N. Bonini. Phys. Rev. Research, 2,033055 (2020)]() 
+1. [C. Di Paola, F. Macheda, S. Laricchia, C. Weber, and N. Bonini. Phys. Rev. Research, 2, 033055 (2020)](https://doi.org/10.1103/PhysRevResearch.2.033055) 
 
-2. [L.Calderín, V.V.Karasiev, S.B.Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142](https://doi.org/10.1016/j.cpc.2017.08.008)
+2. [L. Calderín, V. V. Karasiev, S. B. Trickey, Computer Physics Communications Volume 221, December 2017, Pages 118-142](https://doi.org/10.1016/j.cpc.2017.08.008)
 
-3. [S.Mazevet,M.Torrent,V.Recoules,F.Jollet, High Energy Density Physics Volume 6, Issue 1, January 2010, Pages 84-88]( https://doi.org/10.1016/j.hedp.2009.06.004)
+3. [S. Mazevet, M. Torrent, V. Recoules, F. Jollet, High Energy Density Physics Volume 6, Issue 1, January 2010, Pages 84-88]( https://doi.org/10.1016/j.hedp.2009.06.004)
 
-4. [Giannozzi, S. Baroni, *et al* J.Phys.:Condens.Matter 21, 395502 (2009)](http://dx.doi.org/10.1088/0953-8984/21/39/395502)
+4. [P. Giannozzi, S. Baroni, *et al* J.Phys.:Condens.Matter 21, 395502 (2009)](http://dx.doi.org/10.1088/0953-8984/21/39/395502)
 
 4. [G. Kresse and J. Hafner, Phys. Rev. B 47 , 558 (1993); ibid. 49 , 14 251 (1994)](https://doi.org/10.1103/PhysRevB.47.558)
